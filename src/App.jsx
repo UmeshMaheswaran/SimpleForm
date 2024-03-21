@@ -7,11 +7,12 @@ function App() {
   const [password, setPassword] = useState("");
   const [Confpassword, setConfpassword] = useState("");
   const [showError, setShowError] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault(); // Pour eviter que la page se raffraichît on déclare la fonction ici
     if (password.length !== Confpassword.length) {
-      setShowError(true);
       alert("Your two passwords are not the same"); // j'ai fais une condition pour réussir à afficher un onglet correct ou non si les mots de passe ne sont pas identiques
+      setShowError(true);
     } else {
       setShowError(false);
     }
@@ -63,8 +64,21 @@ function App() {
             setConfpassword(event.target.value);
           }}
         />
-        <input type="submit" value="Register" />
+        <input
+          type="submit"
+          value="Register"
+          onClick={() => {
+            setResults("Results");
+          }}
+        />
       </form>
+
+      {/* <header className="titre">Results</header>
+      <div>
+        <p> </p>
+        <p>Email : brice@lereacteur.io</p>
+        <p>Password : a</p>
+      </div> */}
     </>
   );
 }
